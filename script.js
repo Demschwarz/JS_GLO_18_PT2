@@ -3,7 +3,19 @@ let c2 = document.createElement('span');
 let c3 = document.createElement('span');
 let c4 = document.createElement('span');
 let date = new Date();
-c1.textContent = "Добрый день (утро, вечер, ночь в зависимости от времени суток)";
+if (date.getHours() < 12 && date.getHours() >= 5) {
+    c1.textContent = "Доброе утро";
+} else {
+    if (date.getHours() < 18 && date.getHours() >= 12) {
+        c1.textContent = "Добрый день";
+    } else {
+        if (date.getHours() < 23 && date.getHours() >= 18) {
+            c1.textContent = "Добрый вечер";
+        } else {
+            c1.textContent = "Доброй ночи";
+        }
+    }
+}
 let day = date.getDay();
 switch(day){
     case 1: {
